@@ -4,12 +4,12 @@ use std::io::prelude::*;
 use std::fs;
 
 fn main() {
-    // iniciar el servidor
+    // create the server
     let address = "127.0.0.1:8000";
     let listener = TcpListener::bind(&address).unwrap();
     println!("Servidor iniciado en {}", &address);
 
-    // escuchar por conexiones
+    // listen to the server
     for stream in listener.incoming() {
       let stream = stream.unwrap();
 
@@ -17,7 +17,7 @@ fn main() {
     }
 }
 
-// manejar conexiones
+// Manage the connection
 fn handle_connection(mut stream: TcpStream) {
   let mut buffer = [0; 1024];
   
